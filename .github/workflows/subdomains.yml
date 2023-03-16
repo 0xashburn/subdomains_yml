@@ -9,7 +9,7 @@ env:
   DOMAIN: 'sharda.ac.in'
 
 jobs:
-  Subdomain Finder:
+  subdomains:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
@@ -43,4 +43,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: Subdomains results
-        path: subfinder_output.txt | amass_output.txt | sorted_domains.txt 
+        path: subfinder_output.txt amass_output.txt sorted_domains.txt 
