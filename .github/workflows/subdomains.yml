@@ -111,4 +111,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: Subdomains results
-        path: subfinder_output.txt, sublist3r_output.txt, amass_output.txt, sorted_domains.txt
+        path: subfinder_output.txt sublist3r_output.txt amass_output.txt sorted_domains.txt
