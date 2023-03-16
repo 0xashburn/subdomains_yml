@@ -22,21 +22,21 @@ jobs:
     - name: Install Required Tools 
       run: |
         go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
-        sudo snap install amass
+        sudo apt-get install jq -y 
       shell: bash
 
     - name: Run Subfinder
       run: |
         subfinder -d $DOMAIN -o subfinder_output.txt
       shell: bash
-    - name: Run Amass
+    - name: Run crt.sh
       run: |
-        amass enum -d $DOMAIN -o amass_output.txt
+        curl -s "https://crt.sh/?q=%25.$DOMAIN&output=json" | jq -r '.[].name_value' | sed 's/\*\.//g' | sort -u | grep -v www | tee -a crt.txt
       shell: bash
     
     - name: Sort Sub-domains
       run: |
-        cat subfinder_output.txt amass_output.txt | uniq -u | tee -a sorted_domains.txt
+        cat subfinder_output.txt crt.txt | uniq -u | tee -a sorted_domains.txt
       shell: bash
 
     - name: Save results
@@ -45,5 +45,5 @@ jobs:
         name: Subdomains results
         path: |
           subfinder_output.txt
-          amass_output.txt
+          crt.txt
           sorted_domains.txt
