@@ -1,4 +1,4 @@
-name: Subdomain Finder 
+name: Subdomain_Finder 
 on:
   push:
     branches: [ main ]
