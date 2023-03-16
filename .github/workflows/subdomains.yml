@@ -9,7 +9,7 @@ env:
   DOMAIN: 'sharda.ac.in'
 
 jobs:
-  recon:
+  Subdomain Finder:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
@@ -36,7 +36,7 @@ jobs:
     
     - name: Sort Sub-domains
       run: |
-        cat subfinder_output.txt sublist3r_output.txt amass_output.txt | uniq -u | tee -a sorted_domains.txt
+        cat subfinder_output.txt amass_output.txt | uniq -u | tee -a sorted_domains.txt
       shell: bash
 
     - name: Save results
