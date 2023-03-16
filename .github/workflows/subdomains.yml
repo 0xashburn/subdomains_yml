@@ -1,4 +1,4 @@
-name: Subdomain_Finder 
+name: Subdomain_Finder
 on:
   push:
     branches: [ main ]
@@ -43,4 +43,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: Subdomains results
-        path: subfinder_output.txt amass_output.txt sorted_domains.txt 
+        path: |
+          subfinder_output.txt
+          amass_output.txt
+          sorted_domains.txt
