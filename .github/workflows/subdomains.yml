@@ -6,7 +6,7 @@ on:
     branches: [ main ]
 
 env:
-  DOMAIN: 'sharda.ac.in'
+  DOMAIN: 'indriver.com'
 
 jobs:
   subdomains:
